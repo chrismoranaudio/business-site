@@ -1,0 +1,215 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  opacity: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body.fade-in {
+  animation: fadeInBody 3.8s ease forwards;
+}
+
+/* Header */
+header {
+  padding: 2rem 0;
+  border-bottom: 1px solid #333;
+}
+header h1 {
+  font-size: 3rem;
+}
+header p {
+  color: #999;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* Navbar overrides */
+nav {
+  display: flex;
+  justify-content: flex-end; /* keeps nav links on the right */
+  gap: 2rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
+  background-color: #000; /* ensures nav blends with the rest */
+  position: sticky; /* optional: makes the nav stick to top on scroll */
+  top: 0;
+  z-index: 1000;
+}
+.navbar-nav .nav-link {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+.navbar-nav .nav-link:hover {
+  color: #00ffff;
+}
+
+/* Animation keyframes */
+@keyframes flyInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flyInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.fly-in-left {
+  animation: flyInLeft 2s ease-out forwards;
+}
+
+.fly-in-right {
+  animation: flyInRight 2s ease-out forwards;
+  /* animation-delay: 0.3s; */
+}
+
+.hero-carousel {
+  max-width: none !important;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.overlay-layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-overlay h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero-overlay p {
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+/* Section styles */
+section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffff;
+}
+
+/* Portfolio */
+.portfolio-item {
+  margin-bottom: 2rem;
+}
+.portfolio-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid #333;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Form */
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+}
+form button {
+  background: #00ffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+form button:hover {
+  background: #00cccc;
+}

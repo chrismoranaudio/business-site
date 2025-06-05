@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+header {
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+header h1 {
+  font-size: 3rem;
+}
+header p {
+  color: #999;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+nav a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #00ffff;
+}
+section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffff;
+}
+.portfolio-item {
+  margin-bottom: 2rem;
+}
+.portfolio-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid #333;
+  color: #777;
+  font-size: 0.9rem;
+}
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+}
+form button {
+  background: #00ffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+form button:hover {
+  background: #00cccc;
+}
