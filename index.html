@@ -193,8 +193,68 @@
             <p>Flexible collaboration based on your project needs.</p>
           </div>
         </div>
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/xkjwzozk"
+          method="POST"
+        >
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+          />
 
-        <form class="contact-form">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Your email"
+            autocomplete="email"
+            required
+          />
+
+          <label for="service">What do you need help with?</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="mixing-mastering">Mixing &amp; Mastering</option>
+            <option value="podcast-editing">Podcast Editing</option>
+            <option value="sound-design">Custom Sound Design</option>
+            <option value="music-production">Music Production</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="timeline">Timeline</label>
+          <input
+            id="timeline"
+            name="timeline"
+            type="text"
+            placeholder="For example: ASAP, this month, flexible"
+          />
+
+          <label for="message">Project details</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Tell me about your project, timeline, and what kind of help you need..."
+            required
+          ></textarea>
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="New chrismoranaudio website inquiry"
+          />
+
+          <button type="submit">Send message</button>
+        </form>
+
+        <!-- <form class="contact-form">
           <label for="name">Name</label>
           <input id="name" type="text" placeholder="Your name" required />
 
@@ -210,7 +270,7 @@
           ></textarea>
 
           <button type="submit">Send message</button>
-        </form>
+        </form> -->
       </div>
     </section>
     <footer>
