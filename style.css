@@ -344,34 +344,47 @@ h2 {
   color: #fff;
 }
 
-/* .contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.95rem 1rem;
-  margin-bottom: 1.25rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
-  color: #fff;
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+.form-feedback {
+  font-size: 0.9rem;
+  margin-top: -0.7rem;
+  margin-bottom: 1rem;
+  color: #ff8f8f;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #8f8f8f;
-} */
+.field-feedback {
+  min-height: 1.1rem;
+}
 
-/* .contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: rgba(0, 255, 255, 0.7);
-  box-shadow: 0 0 0 4px rgba(0, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-} */
+.success-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%) translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+  width: min(92vw, 420px);
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  background: rgba(12, 18, 18, 0.96);
+  color: #dffefe;
+  border: 1px solid rgba(0, 255, 255, 0.28);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  z-index: 9999;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
 
+.success-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.contact-form button[disabled] {
+  opacity: 0.7;
+  cursor: wait;
+}
 .contact-form button {
   display: inline-flex;
   align-items: center;

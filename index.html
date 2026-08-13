@@ -193,11 +193,7 @@
             <p>Flexible collaboration based on your project needs.</p>
           </div>
         </div>
-        <form
-          class="contact-form"
-          action="https://formspree.io/f/xkjwzozk"
-          method="POST"
-        >
+        <form id="contact-form" class="contact-form">
           <label for="name">Name</label>
           <input
             id="name"
@@ -206,7 +202,9 @@
             placeholder="Your name"
             autocomplete="name"
             required
+            data-fs-field
           />
+          <div class="form-feedback field-feedback" data-fs-error="name"></div>
 
           <label for="email">Email</label>
           <input
@@ -216,10 +214,12 @@
             placeholder="Your email"
             autocomplete="email"
             required
+            data-fs-field
           />
+          <div class="form-feedback field-feedback" data-fs-error="email"></div>
 
           <label for="service">What do you need help with?</label>
-          <select id="service" name="service" required>
+          <select id="service" name="service" required data-fs-field>
             <option value="">Select a service</option>
             <option value="mixing-mastering">Mixing &amp; Mastering</option>
             <option value="podcast-editing">Podcast Editing</option>
@@ -227,14 +227,17 @@
             <option value="music-production">Music Production</option>
             <option value="other">Other</option>
           </select>
+          <!-- <div class="form-feedback field-feedback" data-fs-error="service"></div>
 
-          <label for="timeline">Timeline</label>
-          <input
-            id="timeline"
-            name="timeline"
-            type="text"
-            placeholder="For example: ASAP, this month, flexible"
-          />
+  <label for="timeline">Timeline</label>
+  <input
+    id="timeline"
+    name="timeline"
+    type="text"
+    placeholder="For example: ASAP, this month, flexible"
+    data-fs-field
+  />
+  <div class="form-feedback field-feedback" data-fs-error="timeline"></div> -->
 
           <label for="message">Project details</label>
           <textarea
@@ -243,7 +246,12 @@
             rows="6"
             placeholder="Tell me about your project, timeline, and what kind of help you need..."
             required
+            data-fs-field
           ></textarea>
+          <div
+            class="form-feedback field-feedback"
+            data-fs-error="message"
+          ></div>
 
           <input
             type="hidden"
@@ -251,32 +259,74 @@
             value="New chrismoranaudio website inquiry"
           />
 
-          <button type="submit">Send message</button>
+          <div class="form-feedback form-feedback--error" data-fs-error></div>
+
+          <button type="submit" data-fs-submit-btn>Send message</button>
         </form>
-
-        <!-- <form class="contact-form">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name" required />
-
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="Your email" required />
-
-          <label for="message">Project details</label>
-          <textarea
-            id="message"
-            rows="6"
-            placeholder="Tell me about your project, timeline, and what kind of help you need..."
-            required
-          ></textarea>
-
-          <button type="submit">Send message</button>
-        </form> -->
+        <div id="success-toast" class="success-toast" aria-live="polite">
+          Thanks — your message has been sent. I'll get back to you soon!
+        </div>
       </div>
     </section>
     <footer>
       <p>&copy; 2026 chrismoranaudio — All rights reserved.</p>
     </footer>
     <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("fade-in");
+
+        const slides = document.querySelectorAll(".hero-slide");
+        if (!slides.length) return;
+
+        let current = 0;
+
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+          });
+        }
+
+        function nextSlide() {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }
+
+        showSlide(current);
+        setInterval(nextSlide, 5000);
+      });
+    </script>
+
+    <script>
+      window.formspree =
+        window.formspree ||
+        function () {
+          (formspree.q = formspree.q || []).push(arguments);
+        };
+
+      formspree("initForm", {
+        formElement: "#contact-form",
+        formId: "xkjwzozk",
+        renderSuccess: function () {
+          const form = document.getElementById("contact-form");
+          const toast = document.getElementById("success-toast");
+
+          form.reset();
+          toast.classList.add("is-visible");
+
+          setTimeout(() => {
+            toast.classList.remove("is-visible");
+          }, 3500);
+        },
+      });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+    <!-- <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
@@ -303,6 +353,6 @@
         showSlide(current);
         setInterval(nextSlide, 5000);
       });
-    </script>
+    </script> -->
   </body>
 </html>
