@@ -26,10 +26,10 @@
       content="Professional mixing, mastering, and podcast editing services for clear, cohesive, polished audio."
     />
     <meta property="og:site_name" content="chrismoranaudio" />
-    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:url" content="https://chrismoranaudio.com/" />
     <meta
       property="og:image"
-      content="https://yourdomain.com/assets/og-image.jpg"
+      content="https://chrismoranaudio.com/assets/og-image.jpg"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -100,23 +100,38 @@
     <section class="hero-carousel">
       <div class="hero-slide">
         <div class="overlay-layer"></div>
-        <img src="images/Patch-Bay-Studio-B.jpg" alt="Hero 1" />
+        <img
+          src="images/Patch-Bay-Studio-B.jpg"
+          alt="Analog patch bay in recording studio"
+        />
       </div>
       <div class="hero-slide">
         <div class="overlay-layer"></div>
-        <img src="images/Hand-On-Console.png" alt="Hero 2" />
+        <img
+          src="images/Hand-On-Console.png"
+          alt="Mixing console in recording studio"
+        />
       </div>
       <div class="hero-slide">
         <div class="overlay-layer"></div>
-        <img src="images/Studio-C.jpg.webp" alt="Hero 3" />
+        <img
+          src="images/Studio-C.jpg.webp"
+          alt="Dolby Atmos setup in recording studio with diffusers"
+        />
       </div>
       <div class="hero-slide">
         <div class="overlay-layer"></div>
-        <img src="images/Studio-B-overhead.jpg" alt="Hero 4" />
+        <img
+          src="images/Studio-B-overhead.jpg"
+          alt="Mixing console and patch bay in recording studio"
+        />
       </div>
       <div class="hero-slide">
         <div class="overlay-layer"></div>
-        <img src="images/Mic-Collection.jpg" alt="Hero 5" />
+        <img
+          src="images/Mic-Collection.jpg"
+          alt="Microphone collection setup in recording studio"
+        />
       </div>
 
       <div class="container text-center hero-overlay">
@@ -181,10 +196,10 @@
       <div class="contact-grid">
         <div class="contact-copy">
           <p class="contact-kicker">Contact</p>
-          <h2>Let’s talk about your project</h2>
+          <h2>Let's talk about your project</h2>
           <p class="contact-lead">
             Whether you need mixing, mastering, podcast editing, or production
-            help, send over a few details and I’ll get back to you.
+            help, send over a few details and I'll get back to you.
           </p>
 
           <div class="contact-points">
@@ -193,7 +208,12 @@
             <p>Flexible collaboration based on your project needs.</p>
           </div>
         </div>
-        <form id="contact-form" class="contact-form">
+        <form
+          id="contact-form"
+          class="contact-form"
+          action="https://formspree.io/f/xkjwzozk"
+          method="POST"
+        >
           <label for="name">Name</label>
           <input
             id="name"
@@ -227,17 +247,10 @@
             <option value="music-production">Music Production</option>
             <option value="other">Other</option>
           </select>
-          <!-- <div class="form-feedback field-feedback" data-fs-error="service"></div>
-
-  <label for="timeline">Timeline</label>
-  <input
-    id="timeline"
-    name="timeline"
-    type="text"
-    placeholder="For example: ASAP, this month, flexible"
-    data-fs-field
-  />
-  <div class="form-feedback field-feedback" data-fs-error="timeline"></div> -->
+          <div
+            class="form-feedback field-feedback"
+            data-fs-error="service"
+          ></div>
 
           <label for="message">Project details</label>
           <textarea
@@ -263,6 +276,7 @@
 
           <button type="submit" data-fs-submit-btn>Send message</button>
         </form>
+
         <div id="success-toast" class="success-toast" aria-live="polite">
           Thanks — your message has been sent. I'll get back to you soon!
         </div>
@@ -301,58 +315,27 @@
       });
     </script>
 
+    <script src="https://unpkg.com/@formspree/ajax@1"></script>
     <script>
-      window.formspree =
-        window.formspree ||
-        function () {
-          (formspree.q = formspree.q || []).push(arguments);
-        };
+      window.addEventListener("DOMContentLoaded", () => {
+        const toast = document.getElementById("success-toast");
 
-      formspree("initForm", {
-        formElement: "#contact-form",
-        formId: "xkjwzozk",
-        renderSuccess: function () {
-          const form = document.getElementById("contact-form");
-          const toast = document.getElementById("success-toast");
+        window.formspree.initForm({
+          formElement: "#contact-form",
+          formId: "xkjwzozk",
+          renderSuccess: ({ form }, message) => {
+            form.reset();
+            toast.textContent =
+              message ||
+              "Thanks — your message has been sent. I'll get back to you soon!";
+            toast.classList.add("is-visible");
 
-          form.reset();
-          toast.classList.add("is-visible");
-
-          setTimeout(() => {
-            toast.classList.remove("is-visible");
-          }, 3500);
-        },
+            setTimeout(() => {
+              toast.classList.remove("is-visible");
+            }, 3500);
+          },
+        });
       });
     </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-
-    <!-- <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      window.addEventListener("load", () => {
-        document.body.classList.add("fade-in");
-
-        const slides = document.querySelectorAll(".hero-slide");
-        if (!slides.length) return;
-
-        let current = 0;
-
-        function showSlide(index) {
-          slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
-          });
-        }
-
-        function nextSlide() {
-          current = (current + 1) % slides.length;
-          showSlide(current);
-        }
-
-        showSlide(current);
-        setInterval(nextSlide, 5000);
-      });
-    </script> -->
   </body>
 </html>
