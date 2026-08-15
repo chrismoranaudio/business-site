@@ -61,7 +61,10 @@
       rel="stylesheet"
       crossorigin="anonymous"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -84,12 +87,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#services">Services</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
-            </li> -->
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
-            </li> -->
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
@@ -190,6 +190,47 @@
             more complete and compelling.
           </p>
         </article>
+      </div>
+    </section>
+    <section id="about" class="intro-feature">
+      <div class="intro-feature__inner">
+        <div class="hero-pic">
+          <img
+            src="images/chris_moran_headshot_for_website_copy_popart_preview.JPEG"
+            alt="profile pic"
+          />
+        </div>
+
+        <div class="hero-text">
+          <h5>Hi I'm <span class="input"></span></h5>
+          <h1>Chris Moran</h1>
+          <p>
+            I am a man of many hats, as is often the case when you work in the
+            creative field. I am a father first and foremost, and my family is
+            everything to me. I enjoy all different kinds of music, and love
+            teaching myself new instruments. I play piano, bass, guitar, drums
+            (badly), ukulele, banjo, accordion, slide flute, kazoo, and chapman
+            stick... to name a few. I also enjoy video editing, software
+            development, magic tricks, yo-yo, and solving a rubix cube. I look
+            forward to working with you!
+          </p>
+          <div class="social">
+            <a
+              href="https://www.linkedin.com/in/chris-moran-audio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/chrismoranaudio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
     <section id="contact" class="contact-section">
@@ -335,6 +376,30 @@
             }, 3500);
           },
         });
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const typedTarget = document.querySelector(".input");
+
+        if (typedTarget) {
+          new Typed(".input", {
+            strings: [
+              "Software Developer",
+              "Problem Solver",
+              "Audio Engineer",
+              "Video Editor",
+              "Multi Instrumentalist",
+              "Father",
+            ],
+            typeSpeed: 70,
+            backSpeed: 55,
+            startDelay: 250,
+            backDelay: 1200,
+            loop: true,
+          });
+        }
       });
     </script>
   </body>
