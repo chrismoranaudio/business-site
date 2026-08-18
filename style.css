@@ -230,6 +230,7 @@ h2 {
   margin: 0;
   line-height: 1.7;
 }
+
 .contact-section {
   max-width: 1200px;
   padding: 5rem 2rem;
@@ -446,7 +447,7 @@ footer {
 .intro-feature {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 2rem 5rem;
+  padding: 5rem 2rem;
 }
 
 .intro-feature__inner {
@@ -455,6 +456,14 @@ footer {
   align-items: center;
   gap: 3rem;
   padding-top: 1rem;
+}
+
+.about-kicker {
+  color: #00ffff;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .hero-pic {
